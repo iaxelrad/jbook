@@ -1,7 +1,16 @@
 import express from 'express';
+import fs from 'fs/promises';
+import path from 'path';
 
+interface Cell {
+  id: string;
+  content: string;
+  type: 'text' | 'code';
+}
 export const createCellsRouter = (filename: string, dir: string) => {
   const router = express.Router();
+
+  const fullPath = path.join(dir, filename);
 
   router.get('/cells', async (req, res) => {
     // Make sure the cell storage file exists
@@ -12,11 +21,14 @@ export const createCellsRouter = (filename: string, dir: string) => {
   });
 
   router.post('/cells', async (req, res) => {
-    // Make sure the file exists
-    // If it does not exist, create it
     // Take the list of cell from the request object
     // Serialize them
+    const { cells }: { cells: Cell[] } = req.body;
+
     // Write the cells into the file
+    await fs.writeFile(fullPath, JSON.stringify(cells), 'utf8');
+
+    res.send({ status: 'ok' });
   });
 
   return router;
