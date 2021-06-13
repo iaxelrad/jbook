@@ -1,5 +1,5 @@
 import express from 'express';
-import fs from 'fs/promises';
+import { promises as fs } from 'fs';
 import path from 'path';
 
 interface Cell {
@@ -9,6 +9,7 @@ interface Cell {
 }
 export const createCellsRouter = (filename: string, dir: string) => {
   const router = express.Router();
+  router.use(express.json());
 
   const fullPath = path.join(dir, filename);
 
