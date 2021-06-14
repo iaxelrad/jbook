@@ -78,7 +78,7 @@ export const fetchCells = () => {
   return async (dispatch: Dispatch<Action>) => {
     dispatch({ type: ActionType.FETCH_CELLS });
     try {
-      const { data }: { data: Cell[] } = await axios.get('./cells');
+      const { data }: { data: Cell[] } = await axios.get('/cells');
 
       dispatch({
         type: ActionType.FETCH_CELLS_COMPLETE,
@@ -101,7 +101,7 @@ export const saveCells = () => {
     const cells = order.map(id => data[id]);
 
     try {
-      await axios.post('./cells', { cells });
+      await axios.post('/cells', { cells });
     } catch (err) {
       dispatch({
         type: ActionType.SAVE_CELLS_ERROR,

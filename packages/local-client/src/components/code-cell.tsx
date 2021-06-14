@@ -7,6 +7,7 @@ import { Cell } from '../state';
 import { useActions } from '../hooks/use-actions';
 import { useTypedSelector } from '../hooks/use-typed-selector';
 import { useCumulativeCode } from '../hooks/use-cumulative-code';
+
 interface CodeCellProps {
   cell: Cell;
 }
