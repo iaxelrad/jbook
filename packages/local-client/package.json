@@ -1,6 +1,6 @@
 {
   "name": "@jsnote-itamar/local-client",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -9,6 +9,7 @@
   ],
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
+    "@monaco-editor/react": "3.7.5",
     "@testing-library/jest-dom": "^5.11.8",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
@@ -20,7 +21,6 @@
     "@types/react-dom": "^16.9.10",
     "@types/react-redux": "7.1.15",
     "@types/react-resizable": "1.7.2",
-    "@monaco-editor/react": "3.7.5",
     "@uiw/react-md-editor": "2.1.1",
     "axios": "0.21.1",
     "bulmaswatch": "^0.8.1",
